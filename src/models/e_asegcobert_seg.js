@@ -3,7 +3,8 @@ module.exports = function(sequelize, DataTypes) {
   return sequelize.define('e_asegcobert_seg', {
     numeropoliza: {
       type: DataTypes.DECIMAL,
-      allowNull: false
+      allowNull: false,
+      primaryKey:true
     },
     certificado: {
       type: DataTypes.DECIMAL,

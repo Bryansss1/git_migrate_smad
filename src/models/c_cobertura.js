@@ -3,11 +3,13 @@ module.exports = function(sequelize, DataTypes) {
   return sequelize.define('c_cobertura', {
     cd_ramo: {
       type: DataTypes.STRING(10),
-      allowNull: false
+      allowNull: false,
+      
     },
     cd_cobert: {
       type: DataTypes.STRING(10),
-      allowNull: false
+      allowNull: false,
+      primaryKey:true
     },
     descripcion: {
       type: DataTypes.STRING(70),

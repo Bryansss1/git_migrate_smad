@@ -7,7 +7,8 @@ module.exports = function(sequelize, DataTypes) {
     },
     numeropoliza: {
       type: DataTypes.DECIMAL,
-      allowNull: false
+      allowNull: false,
+      primaryKey:true
     },
     certificado: {
       type: DataTypes.DECIMAL,

@@ -1,5 +1,5 @@
 const initModels=require("./init-models")
-const db=require("../utils/database")
+const {db}=require("../utils/database")
 
 const models=initModels(db)
 

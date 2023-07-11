@@ -1,7 +1,7 @@
 const express=require("express")
 const fs=require("fs")
 const cors=require("cors")
-const db=require("../src/utils/database")
+const {db}=require("../src/utils/database")
 const morgan=require("morgan")
 const app=express()
 const pruebaRoute=require("./routes/prueba")

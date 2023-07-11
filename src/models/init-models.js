@@ -1,5 +1,4 @@
 var DataTypes = require("sequelize").DataTypes;
-var _a_contbcierre = require("./a_contbcierre");
 var _a_contbcomprob = require("./a_contbcomprob");
 var _a_contbcomprobdet = require("./a_contbcomprobdet");
 var _a_contbmayor = require("./a_contbmayor");
@@ -244,7 +243,6 @@ var _t_repbalcomprob = require("./t_repbalcomprob");
 var _t_repmayoranali = require("./t_repmayoranali");
 
 function initModels(sequelize) {
-  var a_contbcierre = _a_contbcierre(sequelize, DataTypes);
   var a_contbcomprob = _a_contbcomprob(sequelize, DataTypes);
   var a_contbcomprobdet = _a_contbcomprobdet(sequelize, DataTypes);
   var a_contbmayor = _a_contbmayor(sequelize, DataTypes);
@@ -489,8 +487,18 @@ function initModels(sequelize) {
   var t_repmayoranali = _t_repmayoranali(sequelize, DataTypes);
 
 
+  c_ramo.hasOne(c_cobertura)
+  c_cobertura.belongsTo(c_ramo,{
+    foreignKey:"cd_ramo"
+  })
+
+  c_cobertura.hasOne(e_asegcobert_seg)
+  e_asegcobert_seg.belongsTo(c_cobertura,{
+    foreignKey:"cd_cobert"
+  })
+
+
   return {
-    a_contbcierre,
     a_contbcomprob,
     a_contbcomprobdet,
     a_contbmayor,
@@ -507,6 +515,7 @@ function initModels(sequelize) {
     a_ingreso,
     bck_c_maestro_contab,
     bck_t_carga_persona,
+    c_ramo,
     c_acep_contrareaseg,
     c_acep_reaseg,
     c_ambiente,
@@ -585,7 +594,6 @@ function initModels(sequelize) {
     c_prima_servigrua,
     c_proceso_seguro,
     c_proveedor,
-    c_ramo,
     c_recadesc,
     c_recadesc_seguro,
     c_renovacion_seguro,

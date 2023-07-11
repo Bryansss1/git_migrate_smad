@@ -1,7 +1,7 @@
 const ServicePrueba = require("../services/prueba.service")
 
 
-const prueba=async(req,res)=>{
+const prueba=async(req,res,next)=>{
 try {
     const result=await ServicePrueba.Check()
     res.json(result)
